@@ -1,4 +1,4 @@
-package xyz.baudelaplace.items.definitions;
+package xyz.baudelaplace.items.templates;
 
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
  * @param <E>
  *            the element type
  */
-public class BauMeshDefinition<E extends Enum<E> & MetadataItemType> implements ItemMeshDefinition {
+public class BauMeshDefinition<E extends Enum<E> & MetadataItemState> implements ItemMeshDefinition {
 	
 	/** The custom mesh item. */
 	private final CustomMeshItem<E> customMeshItem;
@@ -44,9 +44,9 @@ public class BauMeshDefinition<E extends Enum<E> & MetadataItemType> implements 
 		int validMetadata = metadata >= this.customMeshItem.getTypes().length ? 0 : metadata;
 
 		for (int i = 0; i < this.customMeshItem.getTypes().length; i++) {
-			if (((MetadataItemType) this.customMeshItem.getTypes()[i]).getMetadata() == validMetadata) {
+			if (((MetadataItemState) this.customMeshItem.getTypes()[i]).getMetadata() == validMetadata) {
 				return new ModelResourceLocation(this.customMeshItem.getRegistryName() + "_"
-						+ ((MetadataItemType) this.customMeshItem.getTypes()[i]).getName(), "inventory");
+						+ ((MetadataItemState) this.customMeshItem.getTypes()[i]).getName(), "inventory");
 			}
 		}
 		// Este return nunca será usado...

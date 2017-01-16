@@ -1,10 +1,9 @@
-package xyz.baudelaplace.items.definitions;
+package xyz.baudelaplace.items.templates;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import xyz.baudelaplace.Bau;
 
-// TODO: Auto-generated Javadoc
 /**
  * Classe base para todos os ítens customizados.
  */
@@ -18,11 +17,11 @@ public class CustomItem extends Item {
 	 * @param tab
 	 *            Tab do inventário onde este item será posto
 	 */
-	public CustomItem(String name, CreativeTabs tab) {
+	public CustomItem(String registryName, CreativeTabs tab) {
 		super();
 		setCreativeTab(tab);
-		setUnlocalizedName(name);
-		setRegistryName(name);
+		setUnlocalizedName(registryName);
+		setRegistryName(registryName);
 	}
 
 	/**

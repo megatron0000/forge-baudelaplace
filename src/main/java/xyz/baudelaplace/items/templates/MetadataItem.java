@@ -1,4 +1,4 @@
-package xyz.baudelaplace.items.definitions;
+package xyz.baudelaplace.items.templates;
 
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -9,9 +9,9 @@ import net.minecraft.creativetab.CreativeTabs;
  * @param <E>
  *            Algum Enum que liste variantes do item (i.e, metadatas
  *            diferentes). Observe que deve implementar
- *            {@link MetadataItemType}.
+ *            {@link MetadataItemState}.
  */
-public class MetadataItem<E extends Enum<E> & MetadataItemType> extends CustomItem {
+public class MetadataItem<E extends Enum<E> & MetadataItemState> extends CustomItem {
 
 	/** The types. */
 	private E[] types;

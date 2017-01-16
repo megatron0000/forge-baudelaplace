@@ -1,4 +1,4 @@
-package xyz.baudelaplace.items.definitions.projectiles.laserbullet;
+package xyz.baudelaplace.entity.projectiles.laserbullet;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;

@@ -6,17 +6,14 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import xyz.baudelaplace.KeyBinds;
-import xyz.baudelaplace.KeyInputHandler;
-import xyz.baudelaplace.items.definitions.BauMeshDefinition;
-import xyz.baudelaplace.items.definitions.CustomMeshItem;
-import xyz.baudelaplace.items.definitions.MetadataItem;
-import xyz.baudelaplace.items.definitions.MetadataItemType;
-import xyz.baudelaplace.items.definitions.projectiles.laserbullet.EntityLaserBullet;
-import xyz.baudelaplace.items.definitions.projectiles.laserbullet.RenderLaserBullet;
+import xyz.baudelaplace.entity.projectiles.laserbullet.EntityLaserBullet;
+import xyz.baudelaplace.entity.projectiles.laserbullet.RenderLaserBullet;
+import xyz.baudelaplace.items.templates.BauMeshDefinition;
+import xyz.baudelaplace.items.templates.CustomMeshItem;
+import xyz.baudelaplace.items.templates.MetadataItem;
+import xyz.baudelaplace.items.templates.MetadataItemState;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -24,14 +21,14 @@ import xyz.baudelaplace.items.definitions.projectiles.laserbullet.RenderLaserBul
  */
 public class ClientProxy extends CommonProxy {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see xyz.baudelaplace.proxy.CommonProxy#handlePreInit()
 	 */
 	@Override
 	public void handlePreInit() {
 		super.handlePreInit();
-		KeyBinds.init();
-		MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
 		RenderingRegistry.registerEntityRenderingHandler(EntityLaserBullet.class,
 				new IRenderFactory<EntityLaserBullet>() {
 					public Render<EntityLaserBullet> createRenderFor(RenderManager renderManager) {
@@ -40,7 +37,9 @@ public class ClientProxy extends CommonProxy {
 				});
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see xyz.baudelaplace.proxy.CommonProxy#handleInit()
 	 */
 	@Override
@@ -56,32 +55,26 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerItemRenderer(Item item) {
 
-		if (item instanceof CustomMeshItem<?>) {
+		if (item instanceof CustomMeshItem) {
 			CustomMeshItem<?> itemAsCustomMesh = (CustomMeshItem<?>) item;
-			@SuppressWarnings({ "rawtypes", "unchecked" })
-			BauMeshDefinition<?> mesh = new BauMeshDefinition((CustomMeshItem<?>) item);
+			BauMeshDefinition<?> mesh = new BauMeshDefinition<>((CustomMeshItem<?>) item);
 			// Lembre que CustomMeshItem<?> implementa ItemMeshDefinition
 			ModelLoader.setCustomMeshDefinition(item, mesh);
-			for (Enum<? extends MetadataItemType> type : itemAsCustomMesh.getTypes()) {
-				int metadata = ((MetadataItemType) type).getMetadata();
+			for (Enum<? extends MetadataItemState> type : itemAsCustomMesh.getTypes()) {
+				int metadata = ((MetadataItemState) type).getMetadata();
 				ModelBakery.registerItemVariants(item, mesh.getModelLocation(metadata));
 			}
 		} else if (item instanceof MetadataItem)
-			for (Enum<? extends MetadataItemType> type : ((MetadataItem<?>) item).getTypes()) {
-				String variantName = ((MetadataItemType) type).getName();
-				int metadata = ((MetadataItemType) type).getMetadata();
-				// (baudelaplace:item_registry_name , variantName)
-				// Nome de registro já é precedido de "baudelaplace:"
+			for (Enum<? extends MetadataItemState> type : ((MetadataItem<?>) item).getTypes()) {
+				String variantName = ((MetadataItemState) type).getName();
+				int metadata = ((MetadataItemState) type).getMetadata();
+
 				ModelResourceLocation model = new ModelResourceLocation(item.getRegistryName() + "_" + variantName,
 						"inventory");
-				// (item, metadata, ModelResourceLocation)
 				ModelLoader.setCustomModelResourceLocation(item, metadata, model);
 			}
 		else {
-			// (baudelaplace:item_registry_name , variantName)
-			// Nome de registro já é precedido de "baudelaplace:"
 			ModelResourceLocation model = new ModelResourceLocation(item.getRegistryName(), "inventory");
-			// (item, metadata, ModelResourceLocation)
 			ModelLoader.setCustomModelResourceLocation(item, 0, model);
 		}
 

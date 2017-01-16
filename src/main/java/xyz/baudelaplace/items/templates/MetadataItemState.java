@@ -1,11 +1,11 @@
-package xyz.baudelaplace.items.definitions;
+package xyz.baudelaplace.items.templates;
 
 // TODO: Auto-generated Javadoc
 /**
  * Elementos que deve ter um "subtipo" de um item com metadata (i.e, nome e
  * valor de metadata)
  */
-public interface MetadataItemType {
+public interface MetadataItemState {
 
 	/**
 	 * Nome deste subtipo (por exemplo: "laplace_47_inactive").

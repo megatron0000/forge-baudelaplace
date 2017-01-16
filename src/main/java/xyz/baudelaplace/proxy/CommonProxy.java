@@ -3,7 +3,7 @@ package xyz.baudelaplace.proxy;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import xyz.baudelaplace.Bau;
-import xyz.baudelaplace.items.definitions.projectiles.laserbullet.EntityLaserBullet;
+import xyz.baudelaplace.entity.projectiles.laserbullet.EntityLaserBullet;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -30,7 +30,7 @@ public class CommonProxy {
 	 */
 	public void handlePreInit() {
 		EntityRegistry.registerModEntity(EntityLaserBullet.class, "laser_bullet", ++this.entityIndex, Bau.instance, 64,
-				1, true);
+				20 /* update frequency */, true);
 	}
 
 	/**
