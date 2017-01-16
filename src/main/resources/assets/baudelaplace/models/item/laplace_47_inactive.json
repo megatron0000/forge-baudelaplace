@@ -1,0 +1,126 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "0": "baudelaplace:items/laplace_47",
+        "1": "baudelaplace:items/laplace_47_black"
+    },
+    "elements": [
+        {
+            "name": "Cube",
+            "from": [5.0, 0.0, 5.0],
+            "to": [10.0, 4.0, 13.0],
+            "rotation": {
+                "origin": [8.0, 8.0, 8.0],
+                "axis": "y",
+                "angle": -22.5
+            },
+            "faces": {
+                "south": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 16.0],
+                    "rotation": 90,
+                    "cullface": "north"
+                },
+                "east": {
+                    "texture": "#0",
+                    "uv": [9.0, 0.0, 16.0, 16.0]
+                },
+                "north": {
+                    "texture": "#1",
+                    "uv": [11.0, 13.0, 14.0, 16.0]
+                },
+                "west": {
+                    "texture": "#0",
+                    "uv": [10.0, 0.0, 16.0, 16.0]
+                },
+                "up": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 6.0]
+                },
+                "down": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 7.0]
+                }
+            }
+        },
+        {
+            "name": "Cube",
+            "from": [10.0, 6.0, 5.0],
+            "to": [15.0, 10.0, 13.0],
+            "rotation": {
+                "origin": [8.0, 8.0, 8.0],
+                "axis": "y",
+                "angle": -22.5
+            },
+            "faces": {
+                "south": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 16.0],
+                    "cullface": "north"
+                },
+                "east": {
+                    "texture": "#0",
+                    "uv": [9.0, 0.0, 16.0, 16.0]
+                },
+                "north": {
+                    "texture": "#1",
+                    "uv": [11.0, 13.0, 14.0, 16.0]
+                },
+                "west": {
+                    "texture": "#0",
+                    "uv": [10.0, 0.0, 16.0, 16.0]
+                },
+                "up": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 6.0]
+                },
+                "down": {
+                    "texture": "#0",
+                    "uv": [0.0, 0.0, 16.0, 7.0]
+                }
+            }
+        }
+    ],
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [178, 20, 0],
+            "translation": [-0.25, -3.50, 6.75],
+            "scale": [0.87, 0.93, 1.31]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "firstperson_righthand": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "firstperson_lefthand": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "gui": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "head": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "fixed": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        },
+        "ground": {
+            "rotation": [0, 0, 0],
+            "translation": [0.00, 0.00, 0.00],
+            "scale": [1.00, 1.00, 1.00]
+        }
+    }
+}
