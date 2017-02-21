@@ -17,17 +17,7 @@ public class BauItems {
 	/** The laplace 47. */
 	@SuppressWarnings("unused")
 	private static Laplace47 laplace47;
-
 	
-	/**
-	 * Inits the.
-	 */
-	public static void init() {
-		someItem = register(new CustomItem("someItem", CreativeTabs.REDSTONE));
-		laplace47 = register(
-				new Laplace47("laplace_47", CreativeTabs.COMBAT));
-	}
-
 	/**
 	 * Register.
 	 *
@@ -39,11 +29,21 @@ public class BauItems {
 	 */
 	private static <T extends Item> T register(T item) {
 		GameRegistry.register(item);
-
+	
 		if (item instanceof CustomItem) {
 			((CustomItem) item).registerItemModel();
 		}
-
+	
 		return item;
 	}
+
+	/**
+	 * Inits the.
+	 */
+	public static void init() {
+		someItem = register(new CustomItem("someItem", CreativeTabs.REDSTONE));
+		laplace47 = register(
+				new Laplace47("laplace_47", CreativeTabs.COMBAT));
+	}
+
 }
