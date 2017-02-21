@@ -8,14 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import xyz.baudelaplace.entity.projectiles.laserbullet.EntityLaserBullet;
-import xyz.baudelaplace.entity.projectiles.laserbullet.RenderLaserBullet;
+import xyz.baudelaplace.entities.projectiles.laserbullet.EntityLaserBullet;
+import xyz.baudelaplace.entities.projectiles.laserbullet.RenderLaserBullet;
 import xyz.baudelaplace.items.templates.BauMeshDefinition;
 import xyz.baudelaplace.items.templates.CustomMeshItem;
 import xyz.baudelaplace.items.templates.MetadataItem;
 import xyz.baudelaplace.items.templates.MetadataItemState;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ClientProxy.
  */

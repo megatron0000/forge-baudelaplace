@@ -3,7 +3,7 @@ package xyz.baudelaplace.proxy;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import xyz.baudelaplace.Bau;
-import xyz.baudelaplace.entity.projectiles.laserbullet.EntityLaserBullet;
+import xyz.baudelaplace.entities.projectiles.laserbullet.EntityLaserBullet;
 
 // TODO: Auto-generated Javadoc
 /**

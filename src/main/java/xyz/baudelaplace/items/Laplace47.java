@@ -11,7 +11,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
-import xyz.baudelaplace.entity.projectiles.laserbullet.EntityLaserBullet;
+import xyz.baudelaplace.entities.projectiles.laserbullet.EntityLaserBullet;
 import xyz.baudelaplace.items.templates.CustomMeshItem;
 import xyz.baudelaplace.items.templates.MetadataItemState;
 

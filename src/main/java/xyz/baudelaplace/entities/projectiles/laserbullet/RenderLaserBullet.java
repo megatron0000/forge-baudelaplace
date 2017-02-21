@@ -1,4 +1,4 @@
-package xyz.baudelaplace.entity.projectiles.laserbullet;
+package xyz.baudelaplace.entities.projectiles.laserbullet;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,6 +16,14 @@ public class RenderLaserBullet<T extends EntityLaserBullet> extends Render<T> {
 
 	/** The model laser bullet. */
 	protected ModelLaserBullet modelLaserBullet = new ModelLaserBullet();
+
+	/* (non-Javadoc)
+	 * @see net.minecraft.client.renderer.entity.Render#getEntityTexture(net.minecraft.entity.Entity)
+	 */
+	@Override
+	protected ResourceLocation getEntityTexture(T entity) {
+		return new ResourceLocation(Bau.MODID, "textures/entity/laser_bullet.png");
+	}
 
 	/**
 	 * Instantiates a new render laser bullet.
@@ -42,14 +50,6 @@ public class RenderLaserBullet<T extends EntityLaserBullet> extends Render<T> {
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.popMatrix();
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
-	}
-
-	/* (non-Javadoc)
-	 * @see net.minecraft.client.renderer.entity.Render#getEntityTexture(net.minecraft.entity.Entity)
-	 */
-	@Override
-	protected ResourceLocation getEntityTexture(T entity) {
-		return new ResourceLocation(Bau.MODID, "textures/entity/laser_bullet.png");
 	}
 
 }
