@@ -1,16 +1,17 @@
 package xyz.baudelaplace.proxy;
 
-// TODO: Auto-generated Javadoc
+import net.minecraft.item.Item;
+
 /**
  * The Class ServerProxy.
  */
 public class ServerProxy extends CommonProxy {
 
-	/* (non-Javadoc)
-	 * @see xyz.baudelaplace.proxy.CommonProxy#handlePreInit()
-	 */
-	@Override
-	public void handlePreInit(){
-		super.handlePreInit();
+	public void registerItemRenderer(Item item) {
+		// Do nothing. We are on the server
+	}
+
+	public void registerAllEntityRenderers() {
+		// Do nothing. We are on the server
 	}
 }

@@ -4,7 +4,6 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BauMeshDefinition.
  *

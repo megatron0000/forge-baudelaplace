@@ -2,7 +2,6 @@ package xyz.baudelaplace.items.templates;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import xyz.baudelaplace.Bau;
 
 /**
  * Classe base para todos os ítens customizados.
@@ -24,10 +23,4 @@ public class CustomItem extends Item {
 		setRegistryName(registryName);
 	}
 
-	/**
-	 * Registra o modelo deste item (somente no lado do cliente !).
-	 */
-	public void registerItemModel() {
-		Bau.proxy.registerItemRenderer(this);
-	}
 }

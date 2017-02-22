@@ -6,15 +6,14 @@ import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import xyz.baudelaplace.entities.BauEntities;
 import xyz.baudelaplace.items.BauItems;
 import xyz.baudelaplace.proxy.CommonProxy;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Bau.
- */
+ */	
 @Mod(modid = Bau.MODID, name = Bau.NAME, version = Bau.VERSION)
 public class Bau {
 
@@ -47,20 +46,8 @@ public class Bau {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		// Register and reference all custom item models
-		BauItems.init();
-
-		proxy.handlePreInit();
-	}
-
-	/**
-	 * Inits the.
-	 *
-	 * @param e
-	 *            the e
-	 */
-	@EventHandler
-	public static void init(FMLInitializationEvent e) {
-		proxy.handleInit();
+		BauItems.registerAll();
+		BauEntities.registerAll();
 	}
 
 }

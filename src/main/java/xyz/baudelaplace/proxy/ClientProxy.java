@@ -20,14 +20,10 @@ import xyz.baudelaplace.items.templates.MetadataItemState;
  */
 public class ClientProxy extends CommonProxy {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see xyz.baudelaplace.proxy.CommonProxy#handlePreInit()
+	/**
+	 * Register entity renderer.
 	 */
-	@Override
-	public void handlePreInit() {
-		super.handlePreInit();
+	public void registerAllEntityRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityLaserBullet.class,
 				new IRenderFactory<EntityLaserBullet>() {
 					public Render<EntityLaserBullet> createRenderFor(RenderManager renderManager) {
@@ -36,34 +32,23 @@ public class ClientProxy extends CommonProxy {
 				});
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see xyz.baudelaplace.proxy.CommonProxy#handleInit()
-	 */
-	@Override
-	public void handleInit() {
-	}
-
 	/**
 	 * Registra o renderizador do item (somente no lado do cliente !).
 	 *
 	 * @param item
 	 *            Item a ser registrado
 	 */
-	@Override
 	public void registerItemRenderer(Item item) {
 
 		if (item instanceof CustomMeshItem) {
 			CustomMeshItem<?> itemAsCustomMesh = (CustomMeshItem<?>) item;
-			BauMeshDefinition<?> mesh = new BauMeshDefinition<>((CustomMeshItem<?>) item);
-			// Lembre que CustomMeshItem<?> implementa ItemMeshDefinition
+			BauMeshDefinition<?> mesh = new BauMeshDefinition<>(itemAsCustomMesh);
 			ModelLoader.setCustomMeshDefinition(item, mesh);
 			for (Enum<? extends MetadataItemState> type : itemAsCustomMesh.getTypes()) {
 				int metadata = ((MetadataItemState) type).getMetadata();
 				ModelBakery.registerItemVariants(item, mesh.getModelLocation(metadata));
 			}
-		} else if (item instanceof MetadataItem)
+		} else if (item instanceof MetadataItem) {
 			for (Enum<? extends MetadataItemState> type : ((MetadataItem<?>) item).getTypes()) {
 				String variantName = ((MetadataItemState) type).getName();
 				int metadata = ((MetadataItemState) type).getMetadata();
@@ -72,7 +57,7 @@ public class ClientProxy extends CommonProxy {
 						"inventory");
 				ModelLoader.setCustomModelResourceLocation(item, metadata, model);
 			}
-		else {
+		} else {
 			ModelResourceLocation model = new ModelResourceLocation(item.getRegistryName(), "inventory");
 			ModelLoader.setCustomModelResourceLocation(item, 0, model);
 		}

@@ -2,7 +2,6 @@ package xyz.baudelaplace.items.templates;
 
 import net.minecraft.creativetab.CreativeTabs;
 
-// TODO: Auto-generated Javadoc
 /**
  * Itens com diferentes texturas para diferentes metadata.
  *
